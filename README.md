@@ -27,7 +27,7 @@
     * @Disable - é usado para desabilitar uma classe ou método de teste (anteriormente @Ignore)
   
 ### Mock
-* 
+* desvantagem: Ao usar mocks, estamos "enganando" nosso teste. Um bom teste de DAO por exemplo, é aquele que garante que sua consulta SQL realmente funciona quando enviada para o banco de dados; e a melhor maneira de garantir isso é enviando-a para o banco.
 
 ### Testes de Integração - SQL e DAOs
 * Testar as transações reais conectando no banco de dados, sem usar mock.
@@ -44,4 +44,15 @@
 * **Name Query:** Utiliza queries explícitas nas classes de dominio(Entity), A configuração baseada em anotação tem a vantagem de não precisar que outro arquivo de configuração seja editado, reduzindo o esforço de manutenção. Você paga por esse benefício pela necessidade de recompilar sua classe de domínio para cada nova declaração de consulta. 
 * **@Query:** Em vez de anotá-los para a classe de domínio(named query) é declarado no próprio Repository. Isso libera a classe de domínio de informações específicas de persistência e coloca a consulta na interface do repositório.
 * **Native Queries:* a anotação @Query permite a execução de consultas nativas definindo a sinalização nativeQuery como true, conforme mostrado no exemplo a seguir:
+* **Testes em Paralelo:***
+```
+#execução dos teste em paralelo, default é executar um após o outro.
+junit:
+  jupiter:
+    execution:
+      parallel:
+        enabled: true
+        model:
+          default: concurrent
+```
 * referência: https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods

@@ -16,3 +16,11 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
+#execução dos teste em paralelo, default é executar um após o outro.
+junit:
+  jupiter:
+    execution:
+      parallel:
+        enabled: true
+        model:
+          default: concurrent
