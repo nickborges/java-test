@@ -55,6 +55,12 @@
 			<artifactId>junit-jupiter-engine</artifactId>
 			<version>5.2.0</version>
 		</dependency>-->
+
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-server</artifactId>
+			<version>3.7.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>
