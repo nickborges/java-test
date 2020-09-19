@@ -136,48 +136,7 @@ class NovoUsuarioPage {
         nome.submit();
     }
 }
-```
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-### Spring Data JPA
-* **@DataJpaTest** - fornece uma maneira conveniente de configurar um ambiente com um banco de dados embutido para testar nossas consultas de banco de dados.
-  * A partir da versão 2.1 do Spring não é mais necessário utilizar o @ExtendWith(SpringExtension.class)
-* **@RunWith(SpringRunner.class)** - fornece uma ponte entre os recursos de teste do Spring Boot e JUnit. Sempre que estivermos usando qualquer recurso de teste do Spring Boot em nossos testes JUnit, essa anotação será necessária.
-* **Query Methods**
-  * **Query Creation:** geralmente, o mecanismo de Query Creation para JPA funciona conforme syntaxe do nome do método.
-    * Exemplo: List<User> findByEmailAddressAndLastname(String emailAddress, String lastname); isto vai criar a query select u from User u where u.emailAddress = ?1 and u.lastname = ?2
-  * **Named Query:** Utiliza queries explícitas nas classes de dominio(Entity), A configuração baseada em anotação tem a vantagem de não precisar que outro arquivo de configuração seja editado, reduzindo o esforço de manutenção. Você paga por esse benefício pela necessidade de recompilar sua classe de domínio para cada nova declaração de consulta. 
-  * **@Query:** Em vez de anotá-los para a classe de domínio(named query) é declarado no próprio Repository. Isso libera a classe de domínio de informações específicas de persistência e coloca a consulta na interface do repositório.
-  * **Native Queries:* a anotação @Query permite a execução de consultas nativas definindo a sinalização nativeQuery como true, conforme mostrado no exemplo a seguir:
-  * **Sort:**
-  * **Named Parameters:**
-  * **SpEL Expressions:**
-  * **Modifying Queries:**
-  * **Query Hints:**
-  * **Fetch and LoadGraphs**
-  * **Projections:**
-* **Stored Procedure**
-  * ...    
-* **Specifications**
-  * ...    
-* **Query by Example**
-  * ...
-* **Transactionality**
-  * ...
-* **Locking**
-  * ...
-* **Auditing**
-  * ...
-* **Miscellaneous Considerations**
-  * ...
+``
   
 * **Testes em Paralelo:**
 ```
@@ -190,4 +149,3 @@ junit:
         model:
           default: concurrent
 ```
-* referência: https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods
