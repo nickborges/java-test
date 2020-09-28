@@ -6,6 +6,7 @@
 	<modules>
 		<module>java-junit</module>
 		<module>java-selenium</module>
+		<module>java-cucumber-bdd</module>
 	</modules>
 
 	<groupId>br.com.java-test</groupId>
