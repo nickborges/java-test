@@ -8,14 +8,14 @@
 		<version>2.3.0.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>br.com.java-junit</groupId>
-	<artifactId>java-junit</artifactId>
+	<groupId>br.com.java-test</groupId>
+	<artifactId>java-test</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>java-junit</name>
-	<description>java-junit</description>
+	<name>java-test</name>
+	<description>java-test</description>
 
 	<properties>
-		<java.version>14</java.version>
+		<java.version>11</java.version>
 	</properties>
 
 	<dependencies>
