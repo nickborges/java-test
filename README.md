@@ -170,6 +170,36 @@ class NovoUsuarioPage {
 * Hooks
   * **@After** e **@Before** executado sempre antes de cada cenário.
   * **@BeforeStep** e **@AfterStep** executado sempre antes de cadas step **@Dado**, **@Quando** ou **@Entao**
+* Contexto
+  * roda sempre para todos os cenários.  
+* Steps com lambda
+* dependência:
+  ```
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-java8</artifactId>
+      <version>${cucumber.version}</version>
+      <scope>test</scope>
+    </dependency>
+  ```
+* exemplo:
+```
+public LeilaoSteps() {
+    Dado("um usuario logado", () -> {
+        this.browser = new Browser();
+        browser.seed();
+        loginPage = browser.getLoginPage();
+        leiloesPage = loginPage.realizaLoginComoFulano();
+    });
+
+    Quando("acessa a pagina de novo leilao", () -> {
+        novoLeilaoPage = this.leiloesPage.visitaPaginaParaCriarUmNovoLeilao();
+    });
+
+    //resto omitido
+}
+```
+
 ![exemplo cucumber](cucumber.png)  
 
 ##Cucumber com Rest Assured

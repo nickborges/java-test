@@ -3,6 +3,7 @@
 @leilao
 Funcionalidade: Cadastrando um leilao
 
+    #roda sempre para todos os cenários
 	Contexto:
     Dado um usuario logado
 	
