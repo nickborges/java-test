@@ -17,13 +17,13 @@ Esquema do Cenario: Propondo um lance invalido
  Dado um lance invalido de <valor> reais e do usuario '<nomeUsuario>'
  Quando propoe ao leilao
  Entao o lance nao eh aceito
- 
+# desta forma o método de teste é executado mais de uma vez.
 Exemplos:
     | valor | nomeUsuario |
     |    0  | beltrano |
     |   -1  | cigano |
     
-
+# desta forma o método de teste é executado apenas uma vez recebendo uma lista de valores.
 Cenario: Propondo uma sequencia de lances
  Dado dois lances
     | valor | nomeUsuario |

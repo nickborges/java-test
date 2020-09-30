@@ -1,3 +1,6 @@
+### Convensão para nome de teste
+* https://dzone.com/articles/7-popular-unit-test-naming
+
 ### TDD
 * Conceito:
 
@@ -91,7 +94,12 @@ public void deveAdicionarUmUsuario() {
     driver.close();
 }
 ```
-* padrão Page Object: é ter um objeto por página. Exemplo:
+* **PageObject** é um padrão de projeto para encapsular o acesso a uma pagina da aplicação(ter um objeto por página).
+  * todo o código especifico da interface com Selenium fica dentro do PageObject.
+  * não devemos usar Selenium diretamente nas classe de "steps" do Cucumber.
+  * o teste, mesmo com Selenium, deve sempre começar a partir de estado "limpo".
+  * a melhor estrategia de buscar um elemento na interface é usar a ID.  
+* Exemplo:
 ```
 class UsuariosPage {
 
@@ -136,11 +144,40 @@ class NovoUsuarioPage {
         nome.submit();
     }
 }
-``
-  
-* **Testes em Paralelo:**
 ```
-#execução dos teste em paralelo, default é executar um após o outro.
+* O que é um teste **E2E**?
+  * É um teste que testa todo o fluxo da aplicação pela perspectiva de um usuário real.
+
+### BDD com Cucumber
+* Cucumber:
+ * http://cucumber.io/
+* Pirâmide de testes
+  * testes ponta a ponta (end-to-end)
+  * testes de integração
+  * testes de unidade
+* adicionar as dependências
+* criar os arquivos .feature no /resources.
+  * Exemplo: leilao.feature
+  * Gerkin é uma linguagem para definir os .feature
+  * Dentro do .feature escrevemos a funcionalidade e os critérios de aceitação given/when/then.
+* criar a classe de integração entre o Junit e o Cucumber.
+  * Exemplo: LeilaoCucumberRunner.java
+* criar as classe de steps para implementar a regra given/when/then.
+  * Exemplo: LeilaoSteps
+  * Cucumber gera e roda os passos(steps) associados ao .feature
+  * http://cucumber.io/docs/cucumber/step-definitions/
+  * https://cucumber.io/docs/cucumber/checking-assertions/
+* Hooks
+  * **@After** e **@Before** executado sempre antes de cada cenário.
+  * **@BeforeStep** e **@AfterStep** executado sempre antes de cadas step **@Dado**, **@Quando** ou **@Entao**
+![exemplo cucumber](cucumber.png)  
+
+##Cucumber com Rest Assured
+* https://cucumber.io/docs/guides/api-automation/
+* https://www.baeldung.com/cucumber-rest-api-testing
+
+### Execução dos teste em paralelo, default é executar um após o outro.
+```
 junit:
   jupiter:
     execution:

@@ -6,7 +6,7 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class) 
-@CucumberOptions(features = "classpath:features", tags = "@leilao")
+@CucumberOptions(features = "classpath:features", tags = "@leilao") //busca o arquivo leilão.feature dentro da pasta features
 public class LeilaoCucumberRunner {
 
 }
