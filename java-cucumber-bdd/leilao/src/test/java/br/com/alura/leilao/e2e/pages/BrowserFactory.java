@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class BrowserFactory {
 
@@ -23,15 +24,32 @@ public class BrowserFactory {
 		}
 	}
 
-	private  WebDriver initChromeDriver() {
-		System.setProperty("webdriver.chrome.driver",
+	public WebDriver initChromeDriver() {
+		/*System.setProperty("webdriver.chrome.driver",
 				"C:\\Users\\stepp\\Desktop\\curso-bdd\\workspace\\leilao\\drivers\\chromedriver.exe");
-		return new ChromeDriver();
+		return new ChromeDriver();*/
+		try {
+			System.setProperty("webdriver.chrome.driver", "chromedriver");
+			DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+			capabilities.setCapability("marionette",true);
+			return new ChromeDriver(capabilities);
+		} catch(Exception exception){
+			System.out.println(exception);
+		}
+		return null;
 	}
 
-	private  WebDriver initFirefoxDriver() {
-		System.setProperty("webdriver.gecko.driver",
-				"C:\\Users\\stepp\\Desktop\\curso-bdd\\workspace\\leilao\\drivers\\geckodriver.exe");
-		return new FirefoxDriver();
+	public  WebDriver initFirefoxDriver() {
+		/*System.setProperty("webdriver.gecko.driver",
+				"C:\\Users\\stepp\\Desktop\\curso-bdd\\workspace\\leilao\\drivers\\geckodriver.exe");*/
+		try {
+			System.setProperty("webdriver.gecko.driver", "geckodriver");
+			DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+			capabilities.setCapability("marionette",true);
+			return new FirefoxDriver(capabilities);
+		} catch(Exception exception){
+			System.out.println(exception);
+		}
+		return null;
 	}
 }
